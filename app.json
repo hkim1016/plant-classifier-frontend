@@ -15,7 +15,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan plants",
+        "NSPhotoLibraryUsageDescription": "This app uses the photo library to upload pictures of plants"
+      },
+      "config": {
+        "cleartext": {
+          "config": {
+            "cleartextTrafficPermitted": true
+          }
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +36,20 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
+        }
+      ] 
+    ]
   }
 }
