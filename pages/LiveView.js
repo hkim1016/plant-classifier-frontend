@@ -7,11 +7,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight,
-        // justifyContent: 'flex-end',
-        // width: '100%',
-        // height: Dimensions.get("window").height,
-        // justifyContent: 'center',
-        // borderWidth: 2,
         borderColor: 'black'
     },
     camera: {
@@ -103,11 +98,10 @@ const LiveView = () => {
             },
             data: formData,
         };
+        // change ip before '/plant_analysis' from the one recieved from running plant-classifier-backend
         const apiUrl = 'http://54.215.26.238/plant_analysis';
 
         try {
-            // await axios.get('http://54.215.26.238');
-
             const response = await axios.post(apiUrl, formData, requestOptions);
             console.log(response.data);
             const plantType = response.data['PlantType'];

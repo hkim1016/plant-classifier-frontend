@@ -8,9 +8,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         justifyContent: 'center',
-    },
-    choosePhoto: {
-        // borderWidth: 5
     }
 })
 
@@ -88,12 +85,10 @@ const UploadPhoto = () => {
             },
             data: formData,
         };
-        // const apiUrl = 'https://0906-2603-8001-313e-c055-3c29-2277-9d66-64aa.ngrok-free.app/plant_analysis';
+        // change ip before '/plant_analysis' from the one recieved from running plant-classifier-backend
         const apiUrl = 'http://54.215.26.238/plant_analysis';
 
         try {
-            // await axios.get('http://54.215.26.238');
-
             const response = await axios.post(apiUrl, formData, requestOptions);
             console.log(response.data)
             const plantType = response.data['PlantType']
